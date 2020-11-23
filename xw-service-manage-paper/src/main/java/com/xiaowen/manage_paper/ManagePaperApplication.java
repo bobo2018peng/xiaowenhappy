@@ -1,0 +1,26 @@
+package com.xiaowen.manage_paper;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.client.OkHttp3ClientHttpRequestFactory;
+import org.springframework.web.client.RestTemplate;
+
+
+@EnableFeignClients //开始feignClient
+@EnableDiscoveryClient
+@SpringBootApplication
+@EntityScan("com.xiaowen.framework.domain.paper")//扫描实体类
+@ComponentScan(basePackages={"com.xiaowen.api"})//扫描接口
+@ComponentScan(basePackages={"com.xiaowen.manage_paper"})
+@ComponentScan(basePackages={"com.xiaowen.framework"})//扫描common下的所有类
+public class ManagePaperApplication {
+    public static void main(String[] args)  {
+        SpringApplication.run(ManagePaperApplication.class, args);
+    }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiaowen.manage_cms.dao.StudentMapper">
+    <resultMap id="BaseResultMap" type="com.xiaowen.framework.domain.cms.Student">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="stu_Name" jdbcType="VARCHAR" property="stuName" />
+        <result column="stu_ClassId" jdbcType="INTEGER" property="stuClassId" />
+        <result column="stu_Sex" jdbcType="VARCHAR" property="stuSex" />
+        <result column="stu_Birth" jdbcType="INTEGER" property="stuBirth" />
+    </resultMap>
+    <select id="findStudentById" parameterType="java.lang.String"
+            resultMap="BaseResultMap">
+        select * from student where id = #{id}
+    </select>
+
+
+</mapper>
